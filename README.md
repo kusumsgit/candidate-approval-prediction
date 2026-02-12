@@ -1,42 +1,69 @@
-# Candidate Approval Prediction Using SVM
+# Employee Attrition Prediction
 
 ## Business Problem
-Manual candidate screening can be time-consuming and inconsistent.  
-This project demonstrates how HR teams can use data-driven analytics to support application approval decisions.
+Employee turnover is costly for organizations. HR teams need to identify employees at risk of leaving to improve retention strategies.  
+This project demonstrates a data-driven approach to predict employee attrition using HR analytics.
 
 ## Objective
-Build a classification model to predict whether a candidate’s application should be approved or rejected based on applicant attributes.
+Build a predictive model to classify employees as likely to **stay** or **leave** the organization based on key HR metrics.
 
 ## Dataset
-- 654 anonymized applications
-- 6 continuous variables
-- 4 binary variables
-- Target: Approved (1) / Not Approved (0)
-- Dataset is adapted for portfolio purposes
+- Simulated anonymized HR dataset for portfolio purposes  
+- 100 employee records with features such as:
+  - Age
+  - Job Level
+  - Years at Company
+  - Job Satisfaction
+  - Overtime status (Yes/No)  
+- Target variable: `Attrition` (Yes = leaving, No = staying)
 
-## Method
-- A Support Vector Machine (SVM) classifier was trained using the `ksvm` function from R's `kernlab` package.  
-- Tested multiple regularization parameter (`C`) values to optimize classification accuracy.  
-- Key steps included:
-  1. Data loading and preparation
-  2. Model training
-  3. Coefficient and intercept extraction
-  4. Prediction and accuracy assessment
+## Methodology
+1. **Data Exploration:**  
+   - Summary statistics to understand feature distributions  
+   - Visualization of attrition by job satisfaction and overtime (plots saved in `output/`)  
 
-## Results
-- Maximum classification accuracy: **86.39%**  
-- Coefficients and intercept of the classifier were extracted to represent the decision boundary.
+2. **Model Building:**  
+   - Decision tree classifier trained on HR features to predict attrition  
+   - Easy to interpret and explain to HR stakeholders
+
+3. **Evaluation:**  
+   - Confusion matrix and model accuracy calculated and saved in `output/confusion_matrix.csv`  
+   - Accuracy reported for the simulated dataset
+
+4. **Output & Visualization:**  
+   - Plots saved in `output/`:
+     - `attrition_by_job_satisfaction.png`  
+     - `attrition_by_overtime.png`  
+     - Decision tree visualized in RStudio
+   - Confusion matrix saved as CSV
+
+## Key Insights (from simulated data)
+- Employees with low **Job Satisfaction** and high **Overtime** are more likely to leave  
+- Decision tree highlights **Years at Company**, **Job Level**, and **Overtime** as important predictors  
+- Model accuracy on simulated dataset: ~77% (varies due to random simulation)
 
 ## Business Value
-- Reduces manual effort for HR teams
-- Improves consistency of application approvals
-- Provides data-driven insights for workforce analytics
+- Helps HR teams proactively manage retention  
+- Provides actionable insights for workforce planning  
+- Demonstrates ability to apply analytics in HR contexts
 
-## Code
-- The main R script is in the `code/` folder (`svm_model.R`)  
-- Input dataset is in `data/`  
-- Results and plots are in `output/`
+## Repository Structure
+employee-attrition-prediction/
+├── README.md
+├── code/
+│ └── attrition_model.R
+├── data/
+│ └── employee_attrition.csv
+└── output/
+├── confusion_matrix.csv
+├── attrition_by_job_satisfaction.png
+└── attrition_by_overtime.png
+
+## Tools & Skills Demonstrated
+- R programming for data analysis and modeling  
+- Data visualization using `ggplot2`  
+- Decision tree modeling with `rpart` and `rpart.plot`  
+- HR analytics insights and interpretation
 
 ## Disclaimer
-This project is inspired by Georgia Tech OMSA coursework.  
-All work here has been adapted and anonymized for portfolio purposes only.
+Dataset is simulated and anonymized for portfolio purposes. All analysis is for demonstration of HR analytics skills.
