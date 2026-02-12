@@ -1,36 +1,42 @@
 # Candidate Approval Prediction Using SVM
 
 ## Business Problem
-Manual candidate screening is time-consuming and prone to inconsistency.  
-This project develops a predictive model to help HR teams decide which applicants to approve, using historical anonymized applicant data.
+Manual candidate screening can be time-consuming and inconsistent.  
+This project demonstrates how HR teams can use data-driven analytics to support application approval decisions.
 
 ## Objective
-Build a machine learning classifier to predict whether a candidate’s application should be approved or not.
+Build a classification model to predict whether a candidate’s application should be approved or rejected based on applicant attributes.
 
 ## Dataset
-- 654 applications
+- 654 anonymized applications
 - 6 continuous variables
 - 4 binary variables
 - Target: Approved (1) / Not Approved (0)
-- Source: Adapted from UCI Credit Approval dataset
+- Dataset is adapted for portfolio purposes
 
 ## Method
-A Support Vector Machine (SVM) classifier was trained using the `ksvm` function from R's `kernlab` package.  
-Key steps:
-1. Data loading and preparation
-2. Model training with different regularization parameter `C` values
-3. Extraction of classifier coefficients and intercept
-4. Prediction and accuracy calculation on full dataset
+- A Support Vector Machine (SVM) classifier was trained using the `ksvm` function from R's `kernlab` package.  
+- Tested multiple regularization parameter (`C`) values to optimize classification accuracy.  
+- Key steps included:
+  1. Data loading and preparation
+  2. Model training
+  3. Coefficient and intercept extraction
+  4. Prediction and accuracy assessment
 
 ## Results
-- Maximum classification accuracy: **86.39%** (for C values between 0.01 and 100)
-- Coefficients and intercept extracted to represent the hyperplane equation
+- Maximum classification accuracy: **86.39%**  
+- Coefficients and intercept of the classifier were extracted to represent the decision boundary.
 
 ## Business Value
-- Supports HR teams by reducing manual screening effort
-- Ensures consistent decision-making
-- Provides data-driven insights for candidate approval processes
+- Reduces manual effort for HR teams
+- Improves consistency of application approvals
+- Provides data-driven insights for workforce analytics
 
 ## Code
-All scripts are included in the `code/` folder. 
-Run `svm_model.R` to reproduce results.
+- The main R script is in the `code/` folder (`svm_model.R`)  
+- Input dataset is in `data/`  
+- Results and plots are in `output/`
+
+## Disclaimer
+This project is inspired by Georgia Tech OMSA coursework.  
+All work here has been adapted and anonymized for portfolio purposes only.
